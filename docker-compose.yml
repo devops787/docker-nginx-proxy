@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    server1:
+        build: .
+        image: devops787/docker-nginx-proxy
+        restart: always
+        ports:
+            - 3001:3000
+        environment:
+            SERVER_ID: 1
+
+    server2:
+        build: .
+        image: devops787/docker-nginx-proxy
+        restart: always
+        ports:
+            - 3002:3000
+        environment:
+            SERVER_ID: 2
+
+    server3:
+        build: .
+        image: devops787/docker-nginx-proxy
+        restart: always
+        ports:
+            - 3003:3000
+        environment:
+            SERVER_ID: 3
+
+    nginx:
+        image: nginx
+        restart: always
+        ports:
+            - 80:80
